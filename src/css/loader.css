@@ -1,0 +1,90 @@
+.App {
+    text-align: center;
+  }
+  .smallSpinner {
+    animation: rotate 2s linear infinite;
+    display:inline-block;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    min-height: 16px;
+    position: relative;
+    top: 3px;
+    margin-right: 4px;
+  }
+  .smallSpinner .path {
+    stroke: #ccc;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+  .myLoader__inner {
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:8px;
+    background-color:rgba(255,255,255,.8);
+  }
+  .myLoader__text {
+    display:inline-block;
+    margin-right:5px;
+  }
+  .myLoader__text .smallSpinner {
+    margin-left:5px;
+  }
+  /*
+  global loader
+   */
+  .mainLoader {
+    position:absolute;
+    left:0;
+    right:0;
+    display:block !important;
+    top:50%;
+    bottom:auto;
+    z-index:1;
+    margin-top:-20px;
+  }
+  .mainLoader:before {
+    content:"";
+    position: fixed;
+    background:#fff;
+    z-index:1;
+    top:1px;
+    bottom:1px;
+    left:1px;
+    right:1px;
+  }
+  .mainLoader .myLoader__inner,
+  .mainLoader .myLoader__counter {
+    position:relative;
+    z-index:2;
+  }
+  .hideLoader {
+    cursor:pointer;
+    position:fixed;
+    top:20px;
+    right:20px;
+    font-size:1rem;
+    color:#ccc;
+    z-index:2;
+    background:transparent;
+    border:0;
+  }
